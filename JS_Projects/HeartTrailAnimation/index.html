@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Trail Animation</title>
+    <!-- Style  -->
+    <style>
+        @keyframes animate{
+            0%{
+                transform: translate(-50%, -50%);
+                opacity: 1;
+                filter: hue-rotate(0);
+            }
+            100%{
+                transform: translate(-50%, -6000%);
+                opacity: 0;
+                filter: hue-rotate(720deg);
+            }
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+        }
+        body span{
+            font-size: 150px;
+            /* height: 100px;
+            width: 100px; */
+            color: red;
+            position: absolute;
+            pointer-events: none    ;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 1px #fff, -2px -2px 1px #fff;
+            animation: animate 6s linear;
+            /* text-shadow: ; */
+        }
+    </style>
+</head>
+<body id="body">
+    <!-- <span>&hearts;</span> -->
+    <!-- script  -->
+    <script>
+        let bdy = document.body;
+        let div = document.createElement('div');
+        let spanEl = document.getElementsByTagName('span');
+        let heart = '&hearts;';
+        bdy.addEventListener('mousemove',function(event){
+            let xPos = event.offsetX;
+            let yPos = event.offsetY;
+            console.log(`X = ${xPos}`);
+            console.log(`Y = ${yPos}`);
+            let spn = document.createElement('span');
+            spn.innerHTML = heart;
+            let size = Math.random() * 100;
+            // spn.style.font-size = size + 'px';
+            spn.style = `font-size:${size}px`;
+            spn.style.top = yPos + 'px';
+            spn.style.left = xPos + 'px';
+            bdy.appendChild(spn);
+            setTimeout(function(){
+                spn.remove()
+            },3000);
+        });
+    </script>
+</body>
+</html>

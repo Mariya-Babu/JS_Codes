@@ -1,0 +1,12 @@
+{
+    "Name" : "Rishi",
+    "Age" : 25,
+    "Collage" : "IIIT - Nuzivd",
+    "Passcode_No" : true,
+    "Address" : {
+        "City" : "Addanki",
+        "Village" : "VelamavariPalem",
+        "PinCode" : 523201
+    },
+    "Skills" : ["FrontEnd","BackEnd","FullStack","DataSceintist","UI/UX"]
+}

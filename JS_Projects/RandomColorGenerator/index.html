@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 100vh;
+            max-width: 100vw;
+            flex-direction: column;
+            margin: 20px;
+        }
+        .box{
+            height: 20px;
+            width: 150px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+        .block{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Random Color Generator </h1>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="block">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        let block = document.getElementsByClassName('block');
+        let box = document.getElementsByClassName('box');
+
+        for(let i=0;i<box.length;i++){
+            let color = randColor();
+            box[i].style.background = color;
+            box[i].innerHTML = `${color}`;
+        }
+        function randColor(){
+            let lst = ['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f'];
+            let clr = '#';
+            let randnum;
+            for(let i=0;i<6;i++){
+                randnum = Math.round(Math.random() * 15);
+                clr += lst[randnum];
+            }
+            console.log(clr);
+            return clr;
+        }
+        randColor();
+    </script>
+</body>
+</html>

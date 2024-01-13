@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator </title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+
+        </div>
+        <div class="inputs">
+            <div class="row g">
+                <button id="ac"  class="g"  onclick="return valAC()">AC</button>
+                <button id="de"  class="g"  onclick="return valDE()">DE</button>
+                <button id="dot"  class="g"  onclick="return valDot()">.</button>
+                <button  class="g"  onclick="return valDiv()">/</button>
+            </div>
+            <div class="row">
+                <button onclick="return val7()">7</button>
+                <button onclick="return val8()">8</button>
+                <button onclick="return val9()">9</button>
+                <button onclick="return valStar()">*</button>
+            </div>
+            <div class="row">
+                <button onclick="return val4()">4</button>
+                <button onclick="return val5()">5</button>
+                <button onclick="return val6()">6</button>
+                <button onclick="return valMinus()">-</button>
+            </div>
+            <div class="row">
+                <button onclick="return val1()">1</button>
+                <button onclick="return val2()">2</button>
+                <button onclick="return val3()">3</button>
+                <button onclick="return valPlus()">+</button>
+            </div>
+            <div class="row">
+                <button onclick="return val00()">00</button>
+                <button onclick="return val0()">0</button>
+                <button id="equal" class="g" onclick="valEqual()">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

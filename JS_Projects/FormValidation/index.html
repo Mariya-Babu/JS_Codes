@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form Validation </title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+            background-color: aqua;
+        }
+        form{
+            height: 55%;
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid black;
+            background-color: #fff;
+            padding-top: 0px;
+            margin: 100px;
+        }
+        #heading{
+            background-color: blueviolet;
+            color: white;
+            text-align: center;
+            width: 100%;
+            margin: 5px;
+            font-family:monospace;
+        }
+        #heading h1, p{
+            margin: 5px;
+        }
+        input{
+            padding: 10px 30px;
+            padding-left: 0px;
+            border: none;
+            border-bottom: 1px solid gray;
+        }
+        input:focus{
+            border: none !important;
+            /* background-color: yellow; */
+
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div id="heading">
+            <h1>REGISTRATION</h1>
+            <p>Enter your personal data</p>
+        </div>
+
+        <input type="text" id="fullName" placeholder="Full Name"> <br>
+        <input type="email" id="email" placeholder="Email"> <br>
+        <input type="text" id="address" placeholder="Address">
+        <input type="number" maxlength="10" placeholder="Phone">
+        <input type="checkbox" id="check"> Lorem ipsum dolor sit amet.
+        <button type="submit">SUBMIT</button>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </form>
+</body>
+</html>

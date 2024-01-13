@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Character Counter</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: salmon;
+            font-family: cursive;
+        }
+        #container{
+            padding: 50px;
+            /* background-color: white; */
+            border-radius: 10px;
+            text-align: center;
+            background-color: lightpink;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        #textbox{
+            width: 100%;
+            font-size: 18px;
+            height: 100px;
+            box-sizing: border-box;
+            font-family: cursive;
+            border: 2px solid black;
+            resize: none;
+        }
+        #txt{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Real Time Character Counter</h1>
+        <textarea id="textbox" cols="30" rows="5" placeholder="Please Enter your text here...." maxlength="50"></textarea><br>
+        <div id="txt">
+            <div>Total Character: <span id="ttl-char">0</span> </div>
+            <div>Remaining: <span id="remain">50</span></div>
+        </div>
+    </div>
+    <!-- script  -->
+    <script>
+        let txt = document.getElementById('textbox');
+        let ttl = document.getElementById('ttl-char');
+        let remain = document.getElementById('remain');
+        txt.addEventListener('input', function(){
+            let text = this.value;
+            text = text.trim();
+            text = text.split(' ');
+            let cleanList = text.filter(function(elm){
+                return elm != "";
+            });
+            text = cleanList.join(" ");
+
+            if(text.length <= 50){
+                ttl.innerHTML = `${text.length}`;
+                remain.innerHTML = `${50 - text.length}`;
+            }
+            
+            else{
+                this.value = text;
+            }
+        });
+    </script>
+</body>
+</html>

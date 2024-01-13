@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Landing Page </title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .title{
+            width: 100%;
+            position: absolute;
+            top: 100px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 0, 0.479);
+            color: #fff;
+        }
+        .title h1{
+            padding: 0px 100px;
+            font-weight: 900;
+        }
+        .title h1{
+            transition: all 3s ease;
+        }
+        .main{
+            display: flex;
+            /* justify-content: center; */
+            justify-content: space-between;
+            align-items:center;
+        }
+        .df{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 98vh;
+            width: 49.4vw;
+            background-position:center;
+            background-size: cover;
+        }
+        .df{
+            transition:all 3s ease;
+        }
+        .apple{
+            background-image: url('../Images/Image_4.png');
+        }
+        .samsung{
+            background-image: url('../Images/Image_5.png');
+        }
+        .btn{
+            padding: 10px 30px;
+            background-color: green;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1 class="h1">Apple</h1>
+        <h1 class="h1">Samsung</h1>
+    </div>
+    <div class="main">
+        <div class="apple df">
+            <button class="btn">Buy Now</button>
+        </div>
+        <div class="samsung df">
+            <button class="btn">Buy Now</button>
+        </div>
+    </div>
+
+    <!-- script  -->
+    <script>
+        let df = document.querySelectorAll('.df');
+        let h1 = document.querySelectorAll('.h1');
+        
+        for(let i=0;i<df.length;i++){
+            df[i].addEventListener('mouseover',()=>{
+                df[i].style.width = '80vw';
+                df[i].style.heigth = '50vh';
+                h1[i].style.padding = '0px 250px';
+
+            });
+            df[i].addEventListener('mouseout',()=>{
+                df[i].style.width = '50vw';
+                df[i].style.heght = '49.4vh';
+                
+                h1[i].style.padding = '0px 100px';
+            });
+        }
+    </script>
+</body>
+</html>

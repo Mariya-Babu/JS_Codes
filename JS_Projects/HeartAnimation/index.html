@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Heart Trail Animation </title>
+    <!-- Style  -->
+    <style>
+        @keyframes animate{
+            0%{
+                transform: translate(-50%, -50%);
+                opacity: 1;
+                filter: hue-rotate(0);
+            }
+            100%{
+                transform: translate(-50%, -2000%);
+                opacity: 0;
+                filter: hue-rotate(720deg);
+            }
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color: black;
+            position: relative;
+            color: #fff;
+        }
+        body span{
+            color: red;
+            font-size: 150px;
+            text-shadow: 2px 2px 1px #fff, -2px -2px 1px #fff;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+            animation: animate 6s;
+        }
+        #mobile{
+            display: none;
+        }
+        #pc{
+            position: absolute;
+            top: 1%;
+            text-align: center;
+            color: #fff;
+            z-index: 10;
+            display: block;
+        }
+        @media only screen and (max-width:1300px){
+            #pc{
+                display: none;
+            }
+            #mobile{
+                position: absolute;
+                top: 1%;
+                text-align: center;
+                display: block;
+                z-index: 10;
+                color: #fff;
+            }
+        }
+        #pra{
+            display: none;
+        }
+        @media only screen and (max-width:1300px){
+            #pra{
+            display: flex;
+            position: absolute;
+            bottom: 1%;
+            text-align: center;
+            display: block;
+        }
+        }
+    </style>
+</head>
+<body>
+    <!-- script  -->
+    <h1 id="pc">Move your cursor to see the Magic!</h1>
+    <h1 id="mobile">Click on the screen to see the Magic!</h1>
+    <p id="pra">For better Experience open the file in PC/Laptop</p>
+    <script>
+        let bdy = document.body;
+        let txt = '&heartsuit;';
+        bdy.addEventListener('mousemove', function(event){
+            let spn = document.createElement('span');
+            spn.innerHTML = txt;
+            bdy.appendChild(spn);
+            let xPos = event.pageX;
+            let yPos = event.pageY;
+            spn.style.top = yPos + 'px';
+            spn.style.left =  xPos + 'px';
+            let size = Math.round(Math.random() * 100);
+            spn.style.fontSize = size + 'px';
+            setTimeout(function(){
+                spn.remove();
+            },3000);
+        });
+    </script>
+</body>
+</html>

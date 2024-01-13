@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blurred Background Popup </title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .container{
+            background-image: url('../img4.jpg');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: filter 0.5s;
+        }
+        .container h1{
+            color: #fff;
+            font-size: 60px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .btn{
+            padding: 10px 30px;
+            background-color: orange;
+            color: #fff;
+            font-size: 20px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .active.container{
+            filter: blur(5px) brightness(0.7);
+        }
+        .pop-box{
+            background-image: url("../img5.jpg");
+            color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 30px;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            width: 400px;
+            opacity: 1;
+            transition: all 0.7s;
+        }
+        .join{
+            padding: 10px;
+            font-size: 18px;
+            background-color: orangered;
+            color: #fff;
+            border: none;
+        }
+        input{
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid grey;
+            text-align: center;
+            margin: 10px 0px;
+        }
+        .pop-box h3{
+            font-size: 30px;
+            margin: 10px 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: orangered;
+        }
+        label{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .close{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+        }
+        .cross{
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+
+        }
+        .active.pop-box{
+            visibility: hidden;
+            opacity: 0;
+            top: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Welcome to our website </h1>
+        <button class="btn">Click to Join</button>
+    </div>
+    <div class="pop-box active">
+        <h3>20% OFF Offer</h3>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="Enter Your Email" />
+        <button class="join">Join</button>
+        <div class="close">
+            <button class="cross">X</button>
+        </div>
+    </div>
+    <!-- Script  -->
+    <script>
+        let btnEl = document.querySelector('.btn');
+        let containerEl = document.querySelector(".container");
+        let popEl = document.querySelector(".pop-box");
+        let crossEl = document.querySelector('.cross');
+
+        btnEl.addEventListener('click', function(){
+            containerEl.classList.add("active");
+            popEl.classList.remove("active");
+        });
+
+        crossEl.addEventListener('click',function(){
+            containerEl.classList.remove('active');
+            popEl.classList.add('active');
+        });
+    </script>
+</body>
+</html>

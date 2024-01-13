@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajex</title>
+</head>
+<body>
+    <h1 id="demo">Hello World!</h1>
+    <button class="btn">Click</button>
+    <script>
+        let btn = document.querySelector('.btn');
+
+        btn.addEventListener('click',()=>{
+            alert('Button was clicked');
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = () => {
+                if(this.readyState == 4 && this.status == 200){
+                    // document.getElementById('demo').innerHTML = this.responseText;
+                    console.log(this.repsoseText);
+                }
+            }
+            xhttp.open('GET','https://dummyjson.com/carts',true);
+            xhttp.send();
+        });
+    </script>
+</body>
+</html>

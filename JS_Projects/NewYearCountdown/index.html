@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Count Down </title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: blueviolet;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1,h3{
+            text-transform: uppercase;
+        }
+        .count-down{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(69, 20, 116);
+            padding: 0px 100%;
+        }
+        .collection{
+            padding:2px 10px;
+            margin: 2px 50px;
+        }
+        .count-down h1, .count-down h3{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Countdown to new year</h1>
+        <h1>2024</h1>
+        <div class="count-down">
+            <div class="collection days">
+                <h1 id="day">00</h1>
+                <h3>Days</h3>
+            </div>
+            <div class="collection hours">
+                <h1 id="hour">00</h1>
+                <h3>Hours</h3>
+            </div>
+            <div class="collection">
+                <h1 id="min">00</h1>
+                <h3>Minutes</h3>
+            </div>
+            <div class="collection">
+                <h1 id="sec">00</h1>
+                <h3>Seconds</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let day = document.getElementById('day');
+        let hour = document.getElementById('hour');
+        let min = document.getElementById('min');
+        let sec = document.getElementById('sec');
+
+        let date = new Date();
+        let newYear = new Date("Mon Jan 01 2024 00:00:00");
+        console.log(newYear);
+
+        let d = (newYear - date) / (1000 * 60 * 60 *24);
+        setInterval(()=>{
+            date = new Date();
+
+            let Sec = 1000;
+            let Min = Sec * 60;
+            let Hour = Min * 60;
+            let Day = Hour * 24; 
+
+            let gap = newYear - date;
+            let d = Math.floor((gap) / Day);
+            let h = Math.floor(((gap) % Day) / Hour);;
+            let m = Math.floor(((gap) % Hour) / (Min));
+            let s = Math.floor(((gap)%Min) / Sec);
+
+            day.innerHTML = `${d}`;
+            hour.innerHTML  = `${h}`;
+            min.innerHTML = `${m}`;
+            sec.innerHTML = `${s}`;
+
+
+        },1000);
+    </script>
+</body>
+</html>

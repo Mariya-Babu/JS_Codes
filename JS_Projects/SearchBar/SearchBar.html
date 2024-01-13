@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Animated Search Bar! </title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(216, 232, 253);
+            height: 100vh;
+        }
+        .srch{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            padding-bottom: 5px;
+            padding-right: 8px;
+            border: 1px solid rgb(224, 224, 224);
+            box-shadow: 5px 5px 6px grey;
+            border-radius: 50%;
+            /* transition: all 1s ease; */
+        }
+        .srch input{
+            background-color: transparent;
+            border: none;
+            margin: 0px 20px;
+        }
+
+        .bi-search{
+            cursor: pointer;
+        }
+        .srch .bi-mic-fill{
+            color: blue;
+            cursor: pointer;
+        }
+
+        .d-n{
+            display: none;
+        }
+        .border-10{
+            border-radius: 100px;
+        }
+    </style>
+
+    <!-- Bootstrap Icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div id="search" class="srch">
+            <i class="bi bi-search" id="search-icon"></i>
+            <input type="text" placeholder="Search..." class="search-input d-n"/>
+            <i class="bi bi-mic-fill voice-icon d-n"></i>
+        </div>
+    </div>
+
+    <script>
+        let search = document.getElementById('search');
+        let searchIcon = document.querySelector('#search-icon');
+        let searchInput = document.querySelector('.search-input');
+        let voiceIcon = document.querySelector('.voice-icon');
+
+        searchIcon.addEventListener('click',()=>{
+            search.classList.toggle('border-10');
+            searchInput.classList.toggle('d-n');
+            voiceIcon.classList.toggle('d-n');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Internal CSS  -->
+    <style>
+        .df{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .images{ 
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 100vw;
+            justify-content: space-around;  
+        }
+        .images img{
+            width: 400px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container df">
+        <div class="text df">
+            <h1>Photo Gallery</h1>
+            <p>Enter the number of photos</p>
+            <input type="number" max="10" min="0" class="input"> <br>
+            <small class="errormsg"> Error Message </small> <br>
+            <button class="btn" id="btn"> Get Photos</button>
+        </div>
+        <div class="images df">
+            <img src="https://media.istockphoto.com/id/1173733640/photo/green-forest.webp?b=1&s=170667a&w=0&k=20&c=X6WIre2lWdgZeYjYQZdiinaT3yT3PgFr5dEHd9Eq9rE=" alt="image">
+
+            <img src="https://media.istockphoto.com/id/1173733640/photo/green-forest.webp?b=1&s=170667a&w=0&k=20&c=X6WIre2lWdgZeYjYQZdiinaT3yT3PgFr5dEHd9Eq9rE=" alt="image">
+
+            <img src="https://media.istockphoto.com/id/1173733640/photo/green-forest.webp?b=1&s=170667a&w=0&k=20&c=X6WIre2lWdgZeYjYQZdiinaT3yT3PgFr5dEHd9Eq9rE=" alt="image">
+
+            <img src="https://media.istockphoto.com/id/1173733640/photo/green-forest.webp?b=1&s=170667a&w=0&k=20&c=X6WIre2lWdgZeYjYQZdiinaT3yT3PgFr5dEHd9Eq9rE=" alt="image">
+        </div>
+    </div>
+    <!-- script  -->
+    <script>
+        let btn = document.getElementById('btn');
+        let input = document.querySelector('.input');
+
+        btn.addEventListener('click',()=>{
+            fetchImage();
+        });
+
+        function fetchImage(){
+            let inputValue = input.value;
+            // console.log(inputValue);
+            fetch(`https://api.unsplash.com/photos?per_page=${inputValue}&page=1&clint_id=4dW5nBL-o-1nc0dQUxWNGSIBBUoLDuUnIC50vBdKpQs`).then(
+                (res)=>{
+                    res.json().then((data)=>{
+                        console.log(data);
+                    });
+                }
+            );
+
+            fetch().then((res)=>{
+
+            })
+        }
+    </script>
+</body>
+</html>
+
+
+4dW5nBL-o-1nc0dQUxWNGSIBBUoLDuUnIC50vBdKpQs

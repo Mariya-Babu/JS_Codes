@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Select Menu </title>
+    <style>
+        body{
+            background-image: linear-gradient(120deg,rgb(45, 10, 77),red,orange,rgb(194, 68, 36));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ffffff9c;
+
+        }
+        .top{
+            display: flex;
+            justify-content: space-between;
+            background-color: #ffffff5d;
+            border: 0.5px solid grey;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .top .input{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: transparent;
+            font-size: 20px;
+            width: 200px;
+            color: #ffffff9c;
+        }
+        .input .df p{
+            /* padding: 0px; */
+            margin: 0px;
+        }
+        .apps{
+            padding: 5px 0px;
+            background-color: rgba(255, 255, 255, 0.365);
+            margin: 10px 0px;
+            display: flex;
+            flex-direction: column;
+            border: 0.5px solid grey;
+            border-radius: 7px;
+            transition: all 5s ease;
+        }
+        .df{
+            justify-content: flex-start;
+            align-items: center;
+            display: flex;
+            padding:0px 2px;
+            margin:0px 2px;
+            font-size: 20px;
+        }
+
+        .df p{
+            padding: 0px;
+            margin: 7px;
+        }
+        .df .bi{
+            padding: 0px 10px;
+            font-size: 20px;
+        }
+        .bi-facebook{
+            color: blue;
+        }
+        .bi-youtube{
+            color: red;
+        }
+        .bi-twitter{
+            color: rgb(44, 100, 122);
+        }
+        .bi-linkedin{
+            color: blue;
+        }
+        .p{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .fb:hover{
+            padding: 0px 10px;
+            background-color: rgba(128, 128, 128, 0.493);
+        }
+
+        .d-n{
+            display: none;
+        }
+    </style>
+    
+    <!-- bootstrap-icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Jquery  -->
+    <script src="C:\\Users\\RISHI\\Desktop\\Projects\\JQuery\\JQueryFiles\\jquery-3.6.4.min">
+
+    </script>
+
+    <!-- Bootstrap CSS  -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="cont">  
+        <div class="selector">
+            <div class="top">
+                <!-- <input type="text" placeholder="Social Media" value="" id="social"> -->
+                <div id="social" class="input">Social Media</div>
+                <i class="bi bi-chevron-down down"></i>
+                <i class="bi bi-chevron-up up d-n"></i>
+            </div>
+            <div class="apps d-n">
+                <div class="fb df">
+                    <i class="bi bi-facebook"></i>
+                    <p>FaceBook</p>
+                </div>
+                <div class="yt df">
+                    <i class="bi bi-youtube"></i>
+                    <p>YouTube</p>
+                </div>
+                <div class="twitter df">
+                    <i class="bi bi-twitter"></i>
+                    <p>Twitter</p>
+                </div>
+                <div class="linkedin df">
+                    <i class="bi bi-linkedin"></i>
+                    <p>Linkedin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script  -->
+    <script>
+        let df = document.querySelectorAll('.df');
+        let topBar = document.querySelector('.top');
+        let down = document.querySelector('.down');
+        let up = document.querySelector('.up');
+        let apps = document.querySelector('.apps');
+        let social = document.getElementById('social');
+
+        for(let i=0;i<df.length;i++){
+            df[i].addEventListener('mouseover',()=>{
+                df[i].style.padding = '0px 10px';
+                df[i].style.background = 'rgba(128, 128, 128, 0.493)';
+            });
+
+            df[i].addEventListener('mouseout',()=>{
+                df[i].style.padding = '0px';
+                df[i].style.background = 'none';
+            });
+        }
+
+
+        topBar.addEventListener('click',()=>{
+            down.classList.toggle('d-n');
+            up.classList.toggle('d-n');
+            apps.classList.toggle('d-n');
+            // alert('top-bar clicked');
+        });
+
+        for(let i=0;i<df.length;i++){
+            df[i].addEventListener('click',()=>{
+                // social.innerHTML = `${df[i].innerHTML}`;
+                social.innerHTML = '';
+                let cont = document.createElement('div');
+                cont.innerHTML = `${df[i].innerHTML}`;
+                cont.classList.add('df');
+                social.appendChild(cont);
+            });
+        }
+    </script>
+</body>
+</html>

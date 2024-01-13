@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises All</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <script>
+        let PromisesCall = function(Data,msg) {
+            return function(resolve,reject){
+                setTimeout(()=>{
+                    console.log(`The ${msg} promise has resolved `);
+                    resolve(Data);
+                },Data * 100);
+            }
+        };
+
+
+        let RejectCall = function(Data,msg){
+            return function(resolve,reject){
+                setTimeout(()=>{
+                    console.log(`The ${msg} promise has resolved `);
+                    reject('Failed to excute...');
+                },Data * 100);
+            }
+        };
+
+        let p1 = new Promise(PromisesCall(10,'First'));
+        let p2 = new Promise(PromisesCall(20,'Second'));
+        let p3 = new Promise(RejectCall(30,'Third'));
+        let p4 = new Promise(PromisesCall(40,'Fourth'));
+
+        let total = 0;
+        Promise.all([p1,p2,p3,p4]).then((result)=>{
+            for(i of result){
+                total += i;
+            }
+            console.log(total);
+        }).catch((error)=>{
+            console.log(error);
+        });
+    </script>
+
+</body>
+</html>

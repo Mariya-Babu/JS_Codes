@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Background Image Scroll Effect </title>
+    <!-- style  -->
+    <style>
+        *{
+            text-align: center;
+            margin: 0px;
+        }
+        p{
+            text-align: justify;
+            margin: 20px;
+        }
+        .container{
+            z-index: 10;
+            padding: 30px;
+        }
+        #bg-img{
+            height: 100vh;
+            width: 100%;
+            background-image: url("../img1.jpg");
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-img" id="bg-img">
+
+    </div>
+    <div class="container">
+        <h1>Welcome to our website</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae velit itaque, aperiam modi dicta id ad nihil deserunt distinctio, eveniet fugiat magni quod aut delectus adipisci numquam tempora? Iste, deserunt nobis eum, laborum deleniti perferendis dolorum expedita aperiam, fugit sequi at consequatur. Odit non doloribus assumenda laboriosam eius ratione dolore, dolorem corrupti nulla beatae? Magni illo, possimus omnis eius ipsa veritatis recusandae voluptate ullam magnam fugiat distinctio quam ut animi voluptatum quibusdam sed! Id in soluta totam consectetur quos iusto quas. Officia doloribus maiores fuga minima perferendis culpa est, ut cumque earum consectetur deleniti? Laboriosam deserunt quibusdam odit consequuntur cupiditate.</p>
+    </div>
+    <!-- script  -->
+    <script>
+        let bgImgEl = document.querySelector('.bg-img');
+        let containerEl = document.querySelector('.containeer');
+        window.addEventListener('scroll', function(){
+            updateImage();
+        });
+        function updateImage(){
+            bgImgEl.style.opacity = 1 - window.pageYOffset / 1000 ;
+            bgImgEl.style.backgroundSize = 150 - window.pageYOffset / 15  + "%";
+        }
+    </script>
+</body>
+</html>

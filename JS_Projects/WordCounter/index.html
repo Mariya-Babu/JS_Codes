@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        #container{
+            margin: 100px;
+        }
+        h1{
+            background-color: blue;
+            color: White;
+            font-size: 30px;
+            margin: 0px;
+            border: 2px solid blue;
+            text-align: center;
+        }
+        #textbox{
+            width: 99.65%;
+            resize: none;
+            border: 2px solid blue;
+            margin: 0px;
+            padding: 0px;
+        }
+        textarea:focus{
+            border-radius: 0px;
+        }
+        #count{
+            background-color: blue;
+            color: #fff;
+            text-align: center;
+            font-size: 25px;
+            padding: 10px 0px;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Word Counter</h1>
+        <textarea id="textbox" cols="30" rows="10">
+
+        </textarea>
+        <div id="count">
+            <span id="word">  0  </span>Words and   
+            <span id="char">  0  </span>Characters
+        </div>
+    </div>
+
+    <!-- Script  -->
+    <script>
+        let textbox = document.getElementById('textbox');
+
+        textbox.addEventListener('input',function(){
+            let text = this.value;
+            text = text.trim();
+            let char = document.getElementById('char');
+            char.innerHTML = text.length;
+
+            let wordList = text.split(' ');
+            let cleanList = wordList.filter(function(elm){
+                return elm != '';
+            });
+            let word = document.getElementById('word');
+            word.innerHTML = cleanList.length;
+        });
+
+        textbox.addEventListener('focus',function(){
+            
+        });
+    </script>
+</body>
+</html>
